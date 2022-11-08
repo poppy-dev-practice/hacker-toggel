@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import "./index"
+import { useState } from 'react'
+import Slides from './components/Slides'
 
-function App() {
+
+function App({ slides }) {
+
+  let arrayoftitle = slides.map((el)=>el.title)
+  let arrayoftext = slides.map((el)=>el.text)
+  let counts=0
+  const [count,setCount] = useState(counts)
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className>
+      <Slides slides={slides} counts={counts} count={count} setCount={setCount} arrayoftitle={arrayoftitle} arrayoftext={arrayoftext} ></Slides>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
